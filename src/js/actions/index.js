@@ -6,3 +6,11 @@ export function addArticle(payload) {
 export function addNewArticle(payload) {
   return { type: ADD_ARTICLE, payload };
 }
+
+export function getData() {
+  return fetch("https://jsonplaceholder.typicode.com/posts")
+    .then(res => res.json())
+    .then(json => {
+      return { type: DATA_LOADED, payload: json };
+    });
+}
